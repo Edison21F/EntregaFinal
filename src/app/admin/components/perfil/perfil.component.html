@@ -1,0 +1,33 @@
+<div class="card p-d-flex p-jc-center p-ai-center p-flex-column p-shadow-3 p-mt-5 p-px-3">
+    <p-carousel 
+      [value]="images"
+      [numVisible]="1"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="3000"
+      class="custom-carousel p-shadow-4"
+      containerStyleClass="p-m-2"
+    >
+      <ng-template let-image pTemplate="item">
+        <div class="p-d-flex p-jc-center p-ai-center p-shadow-2" style="border-radius: 8px; overflow: hidden;">
+          <img [src]="image.src" [alt]="image.alt" style="max-width: 100%; height: auto;" />
+        </div>
+      </ng-template>
+    </p-carousel>
+  
+    <div class="p-grid p-mt-5 p-d-flex p-jc-center p-ai-center">
+      <div *ngFor="let card of cards" class="p-col-12 p-md-4 p-px-2">
+        <div class="p-card p-shadow-3">
+          <div class="p-card-header p-d-flex p-jc-center p-ai-center">
+            <i [class]="card.icon" style="font-size: 2rem; color: #007ad9;"></i>
+          </div>
+          <div class="p-card-body p-d-flex p-flex-column p-ai-center">
+            <h2 class="p-text-center">{{ card.title }}</h2>
+            <p class="p-text-center">{{ card.description }}</p>
+            <button pButton type="button" label="Más Información" icon="pi pi-info-circle" class="p-mt-2"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
